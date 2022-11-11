@@ -10,7 +10,7 @@ function Home() {
     <button>Signup</button>
     <button>Login</button>
     </div> 
-    <Carousel/>
+    {/* <Carousel/> */}
     </>
   )
 }

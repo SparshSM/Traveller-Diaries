@@ -19,8 +19,8 @@ const logEntry = new Schema({
     rating:{
         type: Number,
         min:0,
-        max:10,
-        default:0,
+        max:5,
+        default:5,
         required: true
     },
     latitude:{...reqNum,

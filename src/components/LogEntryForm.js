@@ -1,11 +1,15 @@
 import React,{useState} from 'react'
 import "../CSS/LogEntry.css"
+import ReactStars from "react-rating-stars-component";
 import { useForm } from "react-hook-form";
 import { createLogEntry } from '../APIs/logAPI';
 function LogEntryForm({location,onClose}) {
   const [loading,setLoading] =useState(false);
   const [error,setError] =useState("");
   const { register, handleSubmit } = useForm();
+  const ratingChanged = (newRating) => {
+    console.log(newRating);
+  };
   const onSubmit = async(data) => {
     try {
       data.longitude = location.longitude;
@@ -44,16 +48,13 @@ function LogEntryForm({location,onClose}) {
     <input type="date" className="form-control" required {...register("visitedOn")} id="visitedOn" aria-describedby="visitedOn" />
   </div>
   <div className="rate">
-    <input type="radio" id="star5" {...register("star5")} name="rate" value="5" />
-    <label htmlFor="star5" title="text">5 stars</label>
-    <input type="radio" id="star4" {...register("star4")} name="rate" value="4" />
-    <label htmlFor="star4" title="text">4 stars</label>
-    <input type="radio" id="star3" {...register("star3")} name="rate" value="3" />
-    <label htmlFor="star3" title="text">3 stars</label>
-    <input type="radio" id="star2" {...register("star2")} name="rate" value="2" />
-    <label htmlFor="star2" title="text">2 stars</label>
-    <input type="radio" id="star1" {...register("star1")} name="rate" value="1" />
-    <label htmlFor="star1" required title="text">1 star</label>
+  <ReactStars
+   {...register("rating")}
+    count={5}
+    onChange={ratingChanged}
+    size={24}
+    activeColor="#ffd700"
+  />,
   </div>
   <button type="submit" disabled={loading} className="btn btn-primary">{loading ? "Loading...":"Submit"}</button>
 </form>

@@ -2,7 +2,7 @@
 /* eslint-disable no-lone-blocks */
 import React, { useState, useEffect } from "react";
 import { Map, Marker, Popup } from "react-map-gl";
-import { logEnteries } from "../APIs/logAPI";
+import { AllLogEnteries, logEnteries } from "../APIs/logAPI";
 import LogEntryForm from "./LogEntryForm";
 // import LogsDisplay from "./LogsDisplay";
 function MapBar() {
@@ -12,13 +12,25 @@ function MapBar() {
   const [addLoc, setAddLoc] = useState(null);
   let [logs, setLogs] = useState([]);
  
+  // let token = localStorage.getItem("token")
 const getLogs = async()=>{
   let logs = await logEnteries();
   setLogs(logs);
 }
+const TotalLogEnteries = async()=>{
+  let logs = await AllLogEnteries();
+  setLogs(logs);
+}
 useEffect(() => {
-getLogs(); 
-}, []);
+  if (localStorage.getItem("token")) 
+{
+  getLogs();
+}
+else {
+  TotalLogEnteries();
+//   navigate("/login");
+} 
+},);
  const showAddPlace= (event)=>{
 const longitude = event.lngLat.lng
 const latitude = event.lngLat.lat
@@ -53,17 +65,16 @@ console.log(event.lngLat);
           <>
           <React.Fragment>
           key={ele.createdAt}
-
               <Marker
+              color="#3FB1CE"
                 longitude={ele.longitude}
                 latitude={ele.latitude}
                 onClick={()=>{
-                  console.log("hoo");
                   setShowPopup({...showPopup,
                     [ele._id]:true})
-                    console.log(showPopup[ele._id]===true,"val"); 
                 }}
               >  
+              {/* <img src={require('./marker.png')}/> */}
               </Marker>
               {showPopup[ele._id] ? (
       <Popup longitude={ele.longitude} latitude={ele.latitude}

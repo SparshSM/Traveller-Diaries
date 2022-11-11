@@ -90,16 +90,36 @@ try {
 
 })
 // route 3 get login details using token
-router.post('/getuser',fetchuser, async (req,res)=>{
-    try {
-        let userID = req.user.id
-        let user = await User.findById(userID).select("-password")
-        res.send(user)
-    } catch (error) {
-        console.error(error.message);
-            res.status(500).send("some error occured");
-    }
+// router.post('/getuser',fetchuser, async (req,res)=>{
+//     try {
+//         let userID = localStorage.getItem("userdata")
+//         let user = await User.find(userID)
+//         res.send(user)
+//     } catch (error) {
+//         console.error(error.message);
+//             res.status(500).send("some error occured");
+//     }
     
-    })
-
+//     })
+// router.get('/getusers',fetchuser,async (req,res)=>{
+//     try {
+//         let email = localStorage.getItem("userdata");
+//         let emailnew= JSON.stringify(email)
+//         const enteries = await User.find({email:email});
+//         res.send(enteries)
+//     } catch (error) {
+//         console.error(error.message);
+//         res.status(500).send("server error occured");
+//     }
+// })
+// router.get('/getusers',async (req,res)=>{
+//     try {
+//         // let token =localStorage.getItem("userdata")
+//         const enteries = await User.find();
+//         res.send(enteries)
+//     } catch (error) {
+//         console.error(error.message);
+//         res.status(500).send("server error occured");
+//     }
+// })
 module.exports = router
