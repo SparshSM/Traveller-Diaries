@@ -26,6 +26,9 @@ return (
       <li className="nav-item">
         <Link style={{color:"white "}} className={ `nav-link ${location.pathname === "/aboutus" ? "active":"" }`} to="/aboutus">About us</Link>
       </li>
+      <li className="nav-item">
+        <a style={{color:"white "}} href="https://diginotesbypackmaks.herokuapp.com/" target={'_blank'}>Itienary</a>
+      </li>
      {localStorage.getItem('token') ? <li className="nav-item">
         <Link style={{color:"white "}} className={ `nav-link ${location.pathname === "/profile" ? "active":"" }`} to="/profile">Profile</Link>
       </li> :""}
