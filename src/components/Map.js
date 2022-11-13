@@ -25,6 +25,7 @@ useEffect(() => {
   if (localStorage.getItem("token")) 
 {
   getLogs();
+  // TotalLogEnteries();
 }
 else {
   TotalLogEnteries();
@@ -49,7 +50,7 @@ console.log(event.lngLat);
         mapboxAccessToken="pk.eyJ1Ijoic3BhcnNoc20iLCJhIjoiY2w5bDd2ZXNoMTVzbjNvbXhzYmF5Zmg2diJ9.Yx9TNkIw28dQNnK7IbNFKw"
         style={{
           width: "100%",
-          height: "92vh",
+          height: "100vh",
           borderRadius: "5px",
           border: "2px solid red",
           // zoom:"2"
@@ -66,7 +67,9 @@ console.log(event.lngLat);
           <React.Fragment>
           key={ele.createdAt}
               <Marker
-              color="#3FB1CE"
+             color= {localStorage.getItem("token") ?
+              "#3FB1CE" :"red"
+            }
                 longitude={ele.longitude}
                 latitude={ele.latitude}
                 onClick={()=>{
@@ -78,17 +81,20 @@ console.log(event.lngLat);
               </Marker>
               {showPopup[ele._id] ? (
       <Popup longitude={ele.longitude} latitude={ele.latitude}
+      maxWidth="400px"
       closeButton={true}
       closeOnClick={false}
-        anchor="bottom"  onClose={() => setShowPopup({...showPopup,[ele._id]:false})}> 
+        anchor="top"  onClose={() => setShowPopup({...showPopup,[ele._id]:false})}> 
         {/* <LogsDisplay location={ele} /> */}
-        <><div className="card" style={{width: "18rem;"}}>
- <img src="..." className="card-img-top" alt="..." />
+        <><div className="card" style={{width:"250px"}}>
+ <h5 className="card-header">{ele.title}</h5>
 <div className="card-body">
- <h5 className="card-title">{ele.title}</h5>
- <p className="card-text">{ele.description}</p>
- <a href="/" className="btn btn-primary">{ele.visitedOn}</a>
-</div></div></>
+ <p className="card-text">Description: {ele.description}</p>
+ <p className="card-text">Comments: {ele.comments}</p>
+ <p className="card-text">Rating: {ele.rating}</p>
+</div>
+ <span className="card-footer">Visited On: {ele.visitedOn}</span>
+</div></>
       </Popup>) :""}
           </React.Fragment>
           </>
@@ -99,7 +105,9 @@ console.log(event.lngLat);
                 latitude={addLoc.latitude}>  
               </Marker>
               {/* {showPopup[ele._id] ? ( */}
-      <Popup longitude={addLoc.longitude} latitude={addLoc.latitude}
+      <Popup 
+      maxWidth="400px"
+      longitude={addLoc.longitude} latitude={addLoc.latitude}
       closeButton={true}
       closeOnClick={false}
       onClose={() => setAddLoc(null)}

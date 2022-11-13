@@ -9,6 +9,8 @@ import Alert from "./components/Alert";
 import UserProfile from "./components/UserProfile";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import About from './components/About';
+import "./App.css"
 // import LogsDisplay from './components/LogsDisplay';
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home showAlert={showAlert}/>}/>
       <Route path="/profile" element={<UserProfile />}/>
+      <Route path="/aboutus" element={<About/>}/>
       <Route path="/maps" element={<Map showAlert={showAlert}/>}/>
       <Route path="/login" element={<Login showAlert={showAlert}/>} />
       <Route path="/signup" element={<Signup showAlert={showAlert} />} />

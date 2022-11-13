@@ -32,8 +32,7 @@ const Signup = (props) => {
        }
   return (
   <>
-    <div className="signup">
-  <div className="container">
+  <div className="container-fluid"  style={{padding:"70px 32px 30px 32px",background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)"}}>
     <div className="row d-flex justify-content-center align-items-center">
       <div className="col-lg-12 col-xl-11 col-sm-12">
         <div className="card mt-3 mb-3" style={{borderRadius: "25px",backgroundColor:"thistle"}}>
@@ -88,8 +87,7 @@ const Signup = (props) => {
       </div>
     </div>
   </div>
-</div>
-</>
+  </>
   )
 }
 
