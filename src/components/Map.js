@@ -21,6 +21,13 @@ const TotalLogEnteries = async()=>{
   let logs = await AllLogEnteries();
   setLogs(logs);
 }
+// let [diffusers,setDiffuser]= useState()
+const diifuser= async ()=>{
+  logs.map(ele=>{
+    let newus=[ele.user]
+  newus.filter(el=>console.log(ele(el)))
+  })
+}
 useEffect(() => {
   if (localStorage.getItem("token")) 
 {
@@ -29,6 +36,7 @@ useEffect(() => {
 }
 else {
   TotalLogEnteries();
+  diifuser();
 //   navigate("/login");
 } 
 },);
@@ -63,6 +71,7 @@ console.log(event.lngLat);
         onDblClick={showAddPlace}
       >
         {logs.map((ele) => (
+          // console.log(ele.user,"user"),
           <>
           <React.Fragment>
           key={ele.createdAt}

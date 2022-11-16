@@ -3,10 +3,10 @@ const router =  express.Router();
 const fetchuser = require('../middleware/fetchuser');
 const logEntry = require('../models/LogEntry')
 
-router.get('/getlogs',fetchuser,async (req,res)=>{
+router.get('/getlogs',fetchuser , async (req,res)=>{
     try {
         const enteries = await logEntry.find({user: req.user.id});
-        res.send(enteries)
+        res.json(enteries)
     } catch (error) {
         console.error(error.message);
         res.status(500).send("server error occured");
