@@ -9,7 +9,7 @@ function Navbar() {
     navigate("/")
   }
 return (
-  <nav style={{position:"absolute",width:"100%"}} className= {`navbar  navbar-dark bg-primary navbar-expand-lg ${location.pathname === "/maps" ? "navback":"navback2" }`}>
+  <nav style={{position:"",width:"100%"}} className= {`navbar bg-dark navbar-dark  navbar-expand-lg`}>
 <div className="container-fluid">
   <Link className="navbar-brand" to="/">
     {/* <img src={require('./logo1.png')} alt="logo" width={"100px"} height={"30px"} />  */}
@@ -27,7 +27,7 @@ return (
         <Link style={{color:"white "}} className={ `nav-link ${location.pathname === "/aboutus" ? "active":"" }`} to="/aboutus">About us</Link>
       </li>
       <li className="nav-item">
-        <a style={{color:"white "}} href="https://diginotesbypackmaks.herokuapp.com/" target={'_blank'}>Itienary</a>
+        <a style={{color:"white",textDecoration:"none"}} className="nav-link" href="https://diginotesbypackmaks.herokuapp.com/" target={'_blank'}>Itienary</a>
       </li>
      {localStorage.getItem('token') ? <li className="nav-item">
         <Link style={{color:"white "}} className={ `nav-link ${location.pathname === "/profile" ? "active":"" }`} to="/profile">Profile</Link>

@@ -4,16 +4,23 @@ import "../App.css"
 function Home() {
   return (
     <>
-    <div   style={{background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)"}}>
+    <div style={{backgroundColor:"lightgoldenrodyellow"}}>
       
-    <h3 style={{position:"absolute",fontFamily:"'Dancing Script','cursive'",fontWeight:"700",fontSize:"48px"}}>Let the journey begins</h3>
-    <img src="https://png.pngtree.com/background/20210709/original/pngtree-color-travel-tourism-vacation-picture-image_917677.jpg" width={"100%"} style={{marginTop:"-10px"}} />
+    <img src="https://png.pngtree.com/background/20210709/original/pngtree-color-travel-tourism-vacation-picture-image_917677.jpg" width={"100%"} height={"450px"} style={{marginTop:"-10px"}} />
    {/* <div className="" style={{display:"flex",justifyContent:"space-evenly",padding:"10px"}}>
-    <button className="buttonClass">Signup</button>
   </div>  */}
   <div style={{display:"flex",justifyContent:"center"}}>
-
+  <h3 style={{position:"relative",fontFamily:"'Dancing Script','cursive'",fontWeight:"700",fontSize:"48px"}}>Let The Journey Begins,Give Your First Review Here</h3>
+  </div>
+  <div style={{display:"flex",justifyContent:"space-evenly"}}>
+  <button className="buttonClass">Signup</button>
   <button className="buttonClass">Login</button>
+  </div>
+  <div style={{display:"flex",justifyContent:"center"}}>
+  <h3 style={{position:"relative",fontFamily:"'Dancing Script','cursive'",fontWeight:"700",fontSize:"48px"}}>View Other's Recent Review</h3>
+  </div>
+  <div style={{display:"flex",justifyContent:"space-evenly"}}>
+  <button className="buttonClass">Maps</button>
   </div>
     {/* <Carousel/> */}
     </div>

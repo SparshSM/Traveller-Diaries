@@ -21,13 +21,6 @@ const TotalLogEnteries = async()=>{
   let logs = await AllLogEnteries();
   setLogs(logs);
 }
-// let [diffusers,setDiffuser]= useState()
-const diifuser= async ()=>{
-  logs.map(ele=>{
-    let newus=[ele.user]
-  newus.filter(el=>console.log(ele(el)))
-  })
-}
 useEffect(() => {
   if (localStorage.getItem("token")) 
 {
@@ -36,7 +29,6 @@ useEffect(() => {
 }
 else {
   TotalLogEnteries();
-  diifuser();
 //   navigate("/login");
 } 
 },);
@@ -59,8 +51,8 @@ console.log(event.lngLat);
         style={{
           width: "100%",
           height: "100vh",
-          borderRadius: "5px",
-          border: "2px solid red",
+          borderRadius: "2px",
+          // border: "2px solid",
           // zoom:"2"
         }}
         initiaLViewState={{
@@ -68,7 +60,7 @@ console.log(event.lngLat);
           latitude: lat,
         }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
-        onDblClick={showAddPlace}
+        onDblClick={localStorage.getItem("token") ? showAddPlace :""}
       >
         {logs.map((ele) => (
           // console.log(ele.user,"user"),

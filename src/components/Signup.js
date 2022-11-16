@@ -32,7 +32,7 @@ const Signup = (props) => {
        }
   return (
   <>
-  <div className="container-fluid"  style={{padding:"70px 32px 30px 32px",background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)"}}>
+  {/* <div className="container-fluid"  style={{padding:"70px 32px 30px 32px",background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)"}}>
     <div className="row d-flex justify-content-center align-items-center">
       <div className="col-lg-12 col-xl-11 col-sm-12">
         <div className="card mt-3 mb-3" style={{borderRadius: "25px",backgroundColor:"thistle"}}>
@@ -86,7 +86,53 @@ const Signup = (props) => {
         </div>
       </div>
     </div>
+  </div> */}
+  <section className="text-center text-lg-start" style={{background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)"}}>
+  <div className="container py-4">
+    <div className="row g-0 align-items-center">
+      <div className="col-lg-6 mb-5 mb-lg-0">
+        <div className="card cascading-right" style={{
+            background:" hsla(0, 0%, 100%, 0.55)",
+            backdropFilter:" blur(30px)"}}>
+          <div className="card-body p-5 shadow-5 text-center">
+            <h2 className="fw-bold mb-5">Sign up now</h2>
+            <form onSubmit={handlesubmit}>
+              <div className="row">
+                <div className="col-md-12 mb-4">
+                  <div className="form-outline">
+                  <input type="text" id="name" name='name' required onChange={onChange} className="form-control" />
+                      <label className="form-label" htmlFor="name">Your Name</label>
+                  </div>
+                </div>
+              </div>
+
+   
+              <div className="form-outline mb-4">
+              <input type="email" id="email" name='email' required onChange={onChange} className="form-control" />
+                      <label className="form-label" htmlFor="email">Your Email</label>
+              </div>
+
+     
+              <div className="form-outline mb-4">
+              <input type="password" id="password" name='password' required minLength={5} onChange={onChange} className="form-control" />
+                      <label className="form-label" htmlFor="password">Password</label>
+              </div>
+   
+              <button type="submit" className="btn btn-primary btn-block mb-4">
+               Login
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div className="col-lg-6 mb-5 mb-lg-0">
+        <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" style={{paddingTop:"40px",borderTopLeftRadius:"20px !important"}}     className="w-75 rounded-4 shadow-4"
+          alt="" />
+      </div>
+    </div>
   </div>
+</section>
   </>
   )
 }
