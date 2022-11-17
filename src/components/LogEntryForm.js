@@ -1,15 +1,11 @@
 import React,{useState} from 'react'
 // import "../CSS/LogEntry.css"
-import ReactStars from "react-rating-stars-component";
 import { useForm } from "react-hook-form";
 import { createLogEntry } from '../APIs/logAPI';
 function LogEntryForm({location,onClose}) {
   const [loading,setLoading] =useState(false);
   const [error,setError] =useState("");
   const { register, handleSubmit } = useForm();
-  const ratingChanged = (newRating) => {
-    console.log(newRating);
-  };
   const onSubmit = async(data) => {
     try {
       data.longitude = location.longitude;
@@ -41,8 +37,8 @@ function LogEntryForm({location,onClose}) {
     <textarea name="comments" required id="comments" cols="52" {...register("comments")} rows="3"></textarea>
   </div>
   <div className="mb-3 col-md-12">
-    <label htmlFor="image" className="form-label">Image</label>
-    <input type="file" className="form-control" {...register("image")} id="image" aria-describedby="image" />
+    <label htmlFor="image" className="form-label">Image Link</label>
+    <input type="text" className="form-control" {...register("images")} id="image" aria-describedby="image" />
   </div>
   <div className="mb-3 col-md-12">
     <label htmlFor="visitedOn" className="form-label">Visited On</label>
@@ -50,13 +46,16 @@ function LogEntryForm({location,onClose}) {
   </div>
   <div className="rate">
     <label htmlFor="visitedOn" className="form-label">Rating</label>
-  <ReactStars
-   {...register("rating")}
-   count={5}
-   onChange={ratingChanged}
-   size={24}
-   activeColor="#ffd700"
-   />,
+    <span> ⭐</span>
+    <input type="radio" name="rating" id="rating" value="1"  {...register("rating")}  />
+    <span> ⭐</span>
+    <input type="radio" name="rating" id="rating" value="2" {...register("rating")}/>
+    <span> ⭐</span>
+    <input type="radio" name="rating" id="rating" value="3" {...register("rating")}/>
+    <span> ⭐</span>
+    <input type="radio" name="rating" id="rating" value="4" {...register("rating")}/>
+    <span> ⭐</span>
+    <input type="radio" name="rating" id="rating" value="5" {...register("rating")}/>
   </div>
   <button type="submit" disabled={loading} className="btn btn-primary">{loading ? "Loading...":"Submit"}</button>
 </form>

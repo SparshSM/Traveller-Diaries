@@ -1,11 +1,12 @@
 import React from 'react'
 import "../App.css"
+import "../CSS/About.css"
 function About() {
   return (
-  <>
-   <section className="about_section layout_padding" style={{background:" linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",height:"77.8vh"}}>
+  <div className='container-fluid' style={{background:" linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)"}}>
+   <section >
     <div className="container">
-      <div className="heading_container" style={{padding:"100px"}}>
+      <div className="heading_container" style={{padding:"30px"}}>
         <h2>
          Traveler Diaries
         </h2>
@@ -26,7 +27,39 @@ This app helps you to view reviews of a location, city or any place on a global 
       </div>
 
   </section>
-  </>
+  <div className="container py-5">
+    <div className="row mb-4">
+      <div className="col-lg-5">
+        <h2 className="display-4 font-weight-light">Our team</h2>
+      </div>
+    </div>
+
+    <div className="row text-center">
+      <div className="col-xl-6 col-sm-6 mb-5">
+        <div className="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-3.png" alt="" width="100" className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" />
+          <h5 className="mb-0">Sparsh Mehra</h5><span className="small text-uppercase text-muted">CEO - Founder</span>
+          <ul className="social mb-0 list-inline mt-3">
+            <li className="list-inline-item"><a href="/" className="social-link"><i className="fa fa-facebook-f"></i></a></li>
+            <li className="list-inline-item"><a href="/" className="social-link"><i className="fa fa-twitter"></i></a></li>
+            <li className="list-inline-item"><a href="/" className="social-link"><i className="fa fa-instagram"></i></a></li>
+            <li className="list-inline-item"><a href="/" className="social-link"><i className="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="col-xl-6 col-sm-6 mb-5">
+        <div className="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-4.png" alt="" width="100" className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" />
+          <h5 className="mb-0">Tamanna Sharma</h5><span className="small text-uppercase text-muted">Co-Founder</span>
+          <ul className="social mb-0 list-inline mt-3">
+            <li className="list-inline-item"><a href="/" className="social-link"><i className="fa fa-facebook-f"></i></a></li>
+            <li className="list-inline-item"><a href="/" className="social-link"><i className="fa fa-twitter"></i></a></li>
+            <li className="list-inline-item"><a href="/" className="social-link"><i className="fa fa-instagram"></i></a></li>
+            <li className="list-inline-item"><a href="/" className="social-link"><i className="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
   )
 }
 

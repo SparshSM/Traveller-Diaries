@@ -35,10 +35,10 @@ const Footer = () => {
       ></a>
     </section>
   </div>
-  <div className="p-3 pb-5" style={{backgroundColor:"rgba(0, 0, 0, 0.2)"}}>
-    <h6 style={{float:"left"}}> © 2022 Traveler Diaries</h6>
+  <div className="p-3 pb-5" style={{backgroundColor:"rgba(0, 0, 0, 0.2)",height:"105px"}}>
+    <h6 style={{float:"left"}}> <img src={require('./traveler-diaries-logo.png')} alt="logo" width={"140px"} height={"75px"} />  © 2022</h6>
     {/* <h6 style={{float:"right"}}>Developed By: </h6> */}
-  {/* <img src={require('./logo1.png')}  alt="Traveler Diaries" width={"140px"} height={"40px"} /> */}
+   
   </div>
 </footer>
     </>

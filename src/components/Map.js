@@ -6,8 +6,6 @@ import { AllLogEnteries, logEnteries } from "../APIs/logAPI";
 import LogEntryForm from "./LogEntryForm";
 // import LogsDisplay from "./LogsDisplay";
 function MapBar() {
-  let [lng, setLng] = useState();
-  let [lat, setLat] = useState();
   const [showPopup, setShowPopup] = useState({});
   const [addLoc, setAddLoc] = useState(null);
   let [logs, setLogs] = useState([]);
@@ -52,12 +50,6 @@ console.log(event.lngLat);
           width: "100%",
           height: "100vh",
           borderRadius: "2px",
-          // border: "2px solid",
-          // zoom:"2"
-        }}
-        initiaLViewState={{
-          longitude: lng,
-          latitude: lat,
         }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
         onDblClick={localStorage.getItem("token") ? showAddPlace :""}
@@ -85,16 +77,16 @@ console.log(event.lngLat);
       maxWidth="400px"
       closeButton={true}
       closeOnClick={false}
-        anchor="top"  onClose={() => setShowPopup({...showPopup,[ele._id]:false})}> 
+        anchor="left"  onClose={() => setShowPopup({...showPopup,[ele._id]:false})}> 
         {/* <LogsDisplay location={ele} /> */}
         <><div className="card" style={{width:"250px"}}>
  <h5 className="card-header">{ele.title}</h5>
 <div className="card-body">
  <p className="card-text">Description: {ele.description}</p>
  <p className="card-text">Comments: {ele.comments}</p>
- <p className="card-text">Rating: {ele.rating}</p>
+ <p className="card-text">Rating: {ele.rating}⭐</p>
 </div>
- <span className="card-footer">Visited On: {ele.visitedOn}</span>
+ <span className="card-footer">Visited On: {ele.visitedOn.slice(0,10)}</span>
 </div></>
       </Popup>) :""}
           </React.Fragment>
@@ -110,9 +102,9 @@ console.log(event.lngLat);
       maxWidth="400px"
       longitude={addLoc.longitude} latitude={addLoc.latitude}
       closeButton={true}
-      closeOnClick={false}
+      closeOnClick={true}
       onClose={() => setAddLoc(null)}
-      anchor="top"> 
+      anchor="right"> 
         <LogEntryForm onClose={() =>{ setAddLoc(null);
         getLogs();}} location={addLoc} />
       </Popup>

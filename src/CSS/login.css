@@ -7,3 +7,26 @@
       margin-right: 0;
     }
   }
+  
+.loginClass {
+  font-size:22px;
+  font-family:Courier New;
+  width:169px;
+  height:50px;
+  border-width:0px;
+  color:#fff;
+  border-color:rgba(51, 33, 5, 1);
+  font-weight:bold;
+  border-top-left-radius:35px;
+  border-top-right-radius:35px;
+  border-bottom-left-radius:35px;
+  border-bottom-right-radius:35px;
+  box-shadow: 1px 5px 11px 1px rgba(160, 56, 12, 1);
+  text-shadow: 3px 6px 12px rgba(161, 57, 20, 1);
+  background:rgba(230, 70, 20, 1);
+}
+
+.loginClass:hover {
+  background: rgba(177, 82, 53, 1)
+}
+              

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link,useLocation,useNavigate} from 'react-router-dom'
-
+import "../App.css"
 function Navbar() {
   let location = useLocation();
   let navigate = useNavigate (); 
@@ -9,11 +9,11 @@ function Navbar() {
     navigate("/")
   }
 return (
-  <nav style={{width:"100%"}} className="navbar bg-dark navbar-dark  navbar-expand-lg">
+  <nav style={{width:"100%",borderRadius:"5px"}} className="navbar navbar-expand-lg">
 <div className="container-fluid">
   <Link className="navbar-brand" to="/">
-    {/* <img src={require('./logo1.png')} alt="logo" width={"100px"} height={"30px"} />  */}
-    <span>Traveler Diaries🌍✈️</span>
+    <img src={require('./traveler-diaries-logo.png')} alt="logo" width={"120px"} height={"40px"} /> 
+    {/* <span>Traveler Diaries🌍✈️</span> */}
     </Link>
   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
@@ -21,20 +21,22 @@ return (
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <li className="nav-item">
-        <Link style={{color:"white "}} className={ `nav-link ${location.pathname === "/maps" ? "active":"" }`} to="/maps">Maps</Link>
+        <Link  className={ `nav-link ${location.pathname === "/maps" ? "active":"" }`} to="/maps">Maps</Link>
       </li>
       <li className="nav-item">
-        <Link style={{color:"white "}} className={ `nav-link ${location.pathname === "/aboutus" ? "active":"" }`} to="/aboutus">About us</Link>
+        <Link  className={ `nav-link ${location.pathname === "/aboutus" ? "active":"" }`} to="/aboutus">About us</Link>
       </li>
       <li className="nav-item">
-        <a style={{color:"white",textDecoration:"none"}} className="nav-link" href="https://diginotesbypackmaks.herokuapp.com/" target={'_blank'}>Itienary</a>
+        <a style={{textDecoration:"none"}} className="nav-link" href="https://diginotesbypackmaks.herokuapp.com/" target={'_blank'}>Itienary</a>
       </li>
      {localStorage.getItem('token') ? <li className="nav-item">
-        <Link style={{color:"white "}} className={ `nav-link ${location.pathname === "/profile" ? "active":"" }`} to="/profile">Profile</Link>
+        <Link  className={ `nav-link ${location.pathname === "/profile" ? "active":"" }`} to="/profile">Profile</Link>
       </li> :""}
+      <li style={{paddingTop:"8px"}}>
+    {!localStorage.getItem('token')? <div> <Link style={{textDecoration:"none"}} className="mx-1" to="/login" role="button">Login  &nbsp;</Link>
+    <Link style={{textDecoration:"none"}} className=" nav-item" to="/signup" role="button">Signup</Link></div>:<Link style={{textDecoration:"none"}} onClick={logout} className=" nav-item" to="/login" role="button">Logout</Link>}
+      </li>
     </ul>
-    {!localStorage.getItem('token')? <div> <Link style={{color:"white "}} className="btn btn-outline-primary mx-1" to="/login" role="button">Login</Link>
-    <Link style={{color:"white "}} className="btn btn-outline-primary mx-1" to="/signup" role="button">Signup</Link></div>: <button onClick={logout} style={{color:"white "}} className="btn btn-outline-primary mx-1">Logout</button>}
   </div>
 </div>
 </nav>

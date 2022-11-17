@@ -23,8 +23,8 @@ router.get('/totallogs',async (req,res)=>{
 })
 router.post('/addlog',fetchuser, async(req,res,next)=>{
     try {
-        const{title,description,comments,rating,latitude,longitude,visitedOn}=req.body;
-    const logEnter = new logEntry({title,description,comments,rating,latitude,longitude,visitedOn,user:req.user.id})
+        const{title,description,comments,rating,latitude,longitude,images,visitedOn}=req.body;
+    const logEnter = new logEntry({title,description,comments,rating,latitude,longitude,images,visitedOn,user:req.user.id})
         let saved = await logEnter.save();
         res.json(saved)
     } catch (error) {

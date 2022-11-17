@@ -27,6 +27,8 @@ const logEntry = new Schema({
     min:-90,max:90},
     longitude:{...reqNum,
         min:-180,max:180},
+        images: {
+            type: String},
     visitedOn:{
         type: Date,
         required: true,

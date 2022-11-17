@@ -1,7 +1,13 @@
-import React,{useState} from 'react'
-import {useNavigate } from 'react-router-dom'
+import React,{useState,useEffect} from 'react'
+import {useNavigate,Link } from 'react-router-dom'
 
 const Signup = (props) => {
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/");
+      alert("Already Logged in!")
+    }
+  });
     let navigate = useNavigate (); 
     const [creds, setCreds] = useState({name:"",email:"",password:""})
     const handlesubmit = async (e)=>{
@@ -95,7 +101,7 @@ const Signup = (props) => {
             background:" hsla(0, 0%, 100%, 0.55)",
             backdropFilter:" blur(30px)"}}>
           <div className="card-body p-5 shadow-5 text-center">
-            <h2 className="fw-bold mb-5">Sign up now</h2>
+            <h2 className="fw-bold mb-5" style={{fontFamily:"Courier New"}}>Sign up</h2>
             <form onSubmit={handlesubmit}>
               <div className="row">
                 <div className="col-md-12 mb-4">
@@ -118,9 +124,10 @@ const Signup = (props) => {
                       <label className="form-label" htmlFor="password">Password</label>
               </div>
    
-              <button type="submit" className="btn btn-primary btn-block mb-4">
-               Login
+              <button type="submit" className="loginClass mb-3">
+               Signup
               </button>
+              <p>Already an user? <Link style={{color:"white"}} className="mx-1" to="/login" role="button">Login!</Link></p>
             </form>
           </div>
         </div>
