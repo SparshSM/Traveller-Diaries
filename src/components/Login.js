@@ -105,8 +105,8 @@ const Login = (props) => {
         </div>
       </div>
 
-      <div className="col-lg-6 mb-5 mb-lg-0">
-        <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" style={{paddingTop:"40px",borderTopLeftRadius:"20px !important"}}  className="w-75 rounded-4 shadow-4"
+      <div className="col-lg-6 mb-1 mb-lg-0">
+        <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" style={{margin:"10px auto",width:'70%'}}  className=" rounded-4 shadow-4"
           alt="" />
       </div>
     </div>
