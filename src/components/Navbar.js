@@ -9,7 +9,7 @@ function Navbar() {
     navigate("/")
   }
 return (
-  <nav style={{position:"",width:"100%"}} className= {`navbar bg-dark navbar-dark  navbar-expand-lg`}>
+  <nav style={{width:"100%"}} className="navbar bg-dark navbar-dark  navbar-expand-lg">
 <div className="container-fluid">
   <Link className="navbar-brand" to="/">
     {/* <img src={require('./logo1.png')} alt="logo" width={"100px"} height={"30px"} />  */}

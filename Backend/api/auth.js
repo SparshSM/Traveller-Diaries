@@ -78,7 +78,6 @@ try {
             id: user.id
         }
     }
-
     const authtoken = jwt.sign(data,JWT_secret)
     success=true;
     res.json({success,authtoken})
@@ -112,11 +111,16 @@ try {
 //         res.status(500).send("server error occured");
 //     }
 // })
-// router.get('/getusers',async (req,res)=>{
+// router.post('/getusers',async (req,res)=>{
 //     try {
-//         // let token =localStorage.getItem("userdata")
-//         const enteries = await User.find();
-//         res.send(enteries)
+//         let user = await User.findOne({email:req.body.email});
+//         // let idd=localStorage.getItem('userdata')
+//         // // let email = localStorage.getItem("userdata")
+//         // console.log(idd);
+//         // const enteries = await User.find({});
+//         // let id = enteries[0]._id
+//         console.log(us);
+//         res.send(id)
 //     } catch (error) {
 //         console.error(error.message);
 //         res.status(500).send("server error occured");
