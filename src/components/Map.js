@@ -4,13 +4,10 @@ import React, { useState, useEffect } from "react";
 import { Map, Marker, Popup } from "react-map-gl";
 import { AllLogEnteries, logEnteries } from "../APIs/logAPI";
 import LogEntryForm from "./LogEntryForm";
-// import LogsDisplay from "./LogsDisplay";
 function MapBar() {
   const [showPopup, setShowPopup] = useState({});
   const [addLoc, setAddLoc] = useState(null);
-  let [logs, setLogs] = useState([]);
- 
-  // let token = localStorage.getItem("token")
+  let [logs, setLogs] = useState([]); 
 const getLogs = async()=>{
   let logs = await logEnteries();
   setLogs(logs);
@@ -75,18 +72,21 @@ console.log(event.lngLat);
               {showPopup[ele._id] ? (
       <Popup longitude={ele.longitude} latitude={ele.latitude}
       maxWidth="400px"
+      style={{padding:0}}
       closeButton={true}
       closeOnClick={false}
         anchor="left"  onClose={() => setShowPopup({...showPopup,[ele._id]:false})}> 
         {/* <LogsDisplay location={ele} /> */}
-        <><div className="card" style={{width:"250px"}}>
- <h5 className="card-header">{ele.title}</h5>
-<div className="card-body">
- <p className="card-text">Description: {ele.description}</p>
- <p className="card-text">Comments: {ele.comments}</p>
- <p className="card-text">Rating: {ele.rating}⭐</p>
+        <><div className="">
+ <h5 style={{fontFamily:"fantasy"}}>{ele.title}</h5>
+<div>
+  <p style={{fontWeight:"800",display:"inline"}}> Description:</p> 
+ <p>{ele.description}</p>
+  <p style={{fontWeight:"800",display:"inline"}}> Comments:</p> 
+ <p> {ele.comments}</p>
+  <p style={{fontWeight:"800"}}> Rating: {ele.rating}⭐</p> 
 </div>
- <span className="card-footer">Visited On: {ele.visitedOn.slice(0,10)}</span>
+ <span className="position-absolute bottom-0 end-0">Visited On: {ele.visitedOn.slice(0,10)}</span>
 </div></>
       </Popup>) :""}
           </React.Fragment>

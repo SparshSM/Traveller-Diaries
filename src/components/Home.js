@@ -7,14 +7,25 @@ function Home() {
   return (
     <>
       <div style={{ backgroundColor: "ghostwhite" }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+          <h3
+            style={{
+              fontFamily: "'Dancing Script','cursive'",
+              fontWeight: "700",
+              fontSize: "48px",
+              padding:10
+            }}
+          >
+            Let The Journey Begins
+          </h3>
+        </div>
         <img
           src="https://png.pngtree.com/background/20210709/original/pngtree-color-travel-tourism-vacation-picture-image_917677.jpg"
           width={"100%"}
-          height={"450px"}
+          height={"570px"}
+          alt="home"
           style={{ marginTop: "-10px" }}
         />
-        {/* <div className="" style={{display:"flex",justifyContent:"space-evenly",padding:"10px"}}>
-  </div>  */}
         <div style={{ display: "flex", justifyContent: "center" }}>
           <h3
             style={{
@@ -23,16 +34,14 @@ function Home() {
               fontSize: "48px",
             }}
           >
-            Let The Journey Begins
-          </h3>{" "}
+          Contribute to the community, Give Your First Review Here
+          </h3>
           <br />
-          {/* <h3 style={{fontFamily:"'Dancing Script','cursive'",fontWeight:"700",fontSize:"48px"}}>View Other's Recent Review</h3> */}
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button className="buttonClass">
-            {" "}
             <Link className="navbar-brand my-3" to="/maps">
-             Continue To Maps
+             Maps
             </Link>
           </button>
         </div>
@@ -44,10 +53,9 @@ function Home() {
               fontSize: "48px",
             }}
           >
-          Contribute to the community, Give Your First Review Here
-          </h3>{" "}
+         New Here? Start your review journey now!!
+          </h3>
           <br />
-          {/* <h3 style={{fontFamily:"'Dancing Script','cursive'",fontWeight:"700",fontSize:"48px"}}>View Other's Recent Review</h3> */}
         </div>
         <div style={{ display: "flex", justifyContent: "space-evenly" }}>
           <button className="buttonClass">
@@ -77,57 +85,21 @@ function Home() {
             className="buttonClass btn button my-3"
             style={{ textDecoration: "none",display:"grid",alignItems: "center" }}
             href="https://diginotesbypackmaks.herokuapp.com/"
-            target={"_blank"}
+            target={"_blank"} rel="noreferrer"
           >
             Diginotes
           </a>
         </div>
       </div>
-      {/* <div className="container-fluid text-center">
-  <h2>SERVICES</h2>
-  <h4>What we offer</h4>
-  <br />
-  <div className="row">
-    <div className="col-sm-4">
-      <span className="glyphicon glyphicon-off"></span>
-      <h4>POWER</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    <div className="col-sm-4">
-      <span className="glyphicon glyphicon-heart"></span>
-      <h4>LOVE</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    <div className="col-sm-4">
-      <span className="glyphicon glyphicon-lock"></span>
-      <h4>JOB DONE</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    </div>
-    <br /><br />
-  <div className="row">
-    <div className="col-sm-4">
-      <span className="glyphicon glyphicon-leaf"></span>
-      <h4>GREEN</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    <div className="col-sm-4">
-      <span className="glyphicon glyphicon-certificate"></span>
-      <h4>CERTIFIED</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    <div className="col-sm-4">
-      <span className="glyphicon glyphicon-wrench"></span>
-      <h4>HARD WORK</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-  </div>
-</div> */}
       <div
         className="container-fluid text-center"
         style={{ backgroundColor: "ghostwhite" }}
       >
-        <h2>Most Popular Places In The World</h2> <br />
+        <h2 style={{
+              fontFamily: "'Dancing Script','cursive'",
+              fontWeight: "700",
+              fontSize: "48px",
+            }}>Most Visited Places In The World</h2> <br />
         <div className="row text-center">
           <div className="col-sm-4">
             <div className="thumbnail">

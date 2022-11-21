@@ -1,11 +1,19 @@
 import React,{useState} from 'react'
-// import "../CSS/LogEntry.css"
+import "../CSS/LogEntry.css"
 import { useForm } from "react-hook-form";
 import { createLogEntry } from '../APIs/logAPI';
 function LogEntryForm({location,onClose}) {
   const [loading,setLoading] =useState(false);
   const [error,setError] =useState("");
   const { register, handleSubmit } = useForm();
+  let star = document.querySelectorAll('input');
+let showValue = document.querySelector('#rating-value');
+    showValue ={...register("rating")}
+for (let i = 0; i < star.length; i++) {
+	star[i].addEventListener('click', function() {
+		i = this.value;
+	});
+}
   const onSubmit = async(data) => {
     try {
       data.longitude = location.longitude;
@@ -22,7 +30,7 @@ function LogEntryForm({location,onClose}) {
    <>
     <div className="container-fluid">
 
-   <form onSubmit={handleSubmit(onSubmit)}>
+   <form onSubmit={handleSubmit(onSubmit)} style={{color:"black"}}>
     {error ? <h4>{error}</h4>:null}
   <div className="form-group col-md-12">
     <label htmlFor="title" className="form-label">Title</label>
@@ -44,19 +52,21 @@ function LogEntryForm({location,onClose}) {
     <label htmlFor="visitedOn" className="form-label">Visited On</label>
     <input type="date" className="form-control" required {...register("visitedOn")} id="visitedOn" aria-describedby="visitedOn" />
   </div>
-  <div className="rate">
-    <label htmlFor="visitedOn" className="form-label">Rating</label>
-    <span> ⭐</span>
-    <input type="radio" name="rating" id="rating" value="1"  {...register("rating")}  />
-    <span> ⭐</span>
-    <input type="radio" name="rating" id="rating" value="2" {...register("rating")}/>
-    <span> ⭐</span>
-    <input type="radio" name="rating" id="rating" value="3" {...register("rating")}/>
-    <span> ⭐</span>
-    <input type="radio" name="rating" id="rating" value="4" {...register("rating")}/>
-    <span> ⭐</span>
-    <input type="radio" name="rating" id="rating" value="5" {...register("rating")}/>
-  </div>
+			<span>Star Rating</span>
+		<div class="rating-wrap">
+				<fieldset class="rating">
+					<input type="radio" {...register("rating")} id="star5" name="rating" value="5"/><label for="star5" class="full" title="Awesome"></label>
+					<input type="radio" {...register("rating")} id="star4.5" name="rating" value="4.5"/><label for="star4.5" class="half"></label>
+					<input type="radio" {...register("rating")} id="star4" name="rating" value="4"/><label for="star4" class="full"></label>
+					<input type="radio" {...register("rating")} id="star3.5" name="rating" value="3.5"/><label for="star3.5" class="half"></label>
+					<input type="radio" {...register("rating")} id="star3" name="rating" value="3"/><label for="star3" class="full"></label>
+					<input type="radio" {...register("rating")} id="star2.5" name="rating" value="2.5"/><label for="star2.5" class="half"></label>
+					<input type="radio" {...register("rating")} id="star2" name="rating" value="2"/><label for="star2" class="full"></label>
+					<input type="radio" {...register("rating")} id="star1.5" name="rating" value="1.5"/><label for="star1.5" class="half"></label>
+					<input type="radio" {...register("rating")} id="star1" name="rating" value="1"/><label for="star1" class="full"></label>
+					<input type="radio" {...register("rating")} id="star0.5" name="rating" value="0.5"/><label for="star0.5" class="half"></label>
+				</fieldset> <br /> <br />
+				</div>
   <button type="submit" disabled={loading} className="btn btn-primary">{loading ? "Loading...":"Submit"}</button>
 </form>
    </div>

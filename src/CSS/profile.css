@@ -40,3 +40,7 @@
       margin-bottom: 20px;
     }
   }
+
+  .mapboxgl-popup-close-button{
+    padding-right: 5px;
+  }

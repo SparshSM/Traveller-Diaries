@@ -23,3 +23,11 @@
     color: #fff;
     padding: 100px 25px;
   }
+.contact-btn{
+  width: 20% !important;
+  color: #fff;
+  text-decoration: none;
+}
+.contact-btn:hover{
+  color: aqua;
+}
